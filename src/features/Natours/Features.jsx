@@ -33,12 +33,10 @@ function Features() {
   ];
 
   return (
-    <section className="-mt-40">
-      <div className="h-[800px] bg-features-natours bg-top bg-cover clip-skewed-y px-20 flex items-center">
+    <section className="-mt-20">
+      <div className="h-[800px] bg-features-natours bg-top bg-cover px-20 -skew-y-6 [&>*]:skew-y-6 flex items-center">
         <div className="grid grid-cols-4 items-center text-center gap-10">
           {cards_info.map((el, idx) => {
-            el.icon({ className: 'h-10 w-10' });
-            console.log(el.icon);
             return (
               <motion.div
                 key={idx}
@@ -48,7 +46,7 @@ function Features() {
                   y: -10,
                 }}
               >
-                <div className=" bg-clip-text bg-gradient-to-br from-white to-green-800">
+                <div className="bg-clip-text bg-gradient-to-br from-white to-green-800">
                   {<el.icon className="h-12 w-12 text-green-300" />}
                 </div>
                 <Heading

@@ -1,5 +1,8 @@
+import Booking from '../features/Natours/Booking';
 import Features from '../features/Natours/Features';
 import Header from '../features/Natours/Header';
+import PopularTours from '../features/Natours/PopularTours';
+import Stories from '../features/Natours/Stories';
 import Tours from '../features/Natours/Tours';
 
 function NaTours() {
@@ -8,6 +11,9 @@ function NaTours() {
       <Header />
       <Tours />
       <Features />
+      <PopularTours />
+      <Stories />
+      <Booking />
     </div>
   );
 }

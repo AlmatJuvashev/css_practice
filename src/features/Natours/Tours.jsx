@@ -30,7 +30,7 @@ function Tours() {
   }
 
   return (
-    <section className="-mt-[20vh] pt-[12rem] px-20 bg-gray-200">
+    <section className="-mt-[20vh] pt-[12rem] px-20 pb-10 bg-gray-200">
       <div>
         <Heading
           type="h2"

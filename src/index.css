@@ -28,7 +28,7 @@
 
 @layer utilities {
   .clip-bottom-right {
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
   }
   .clip-skewed-y {
     clip-path: polygon(0 20%, 100% 0, 100% 75%, 0 100%);
@@ -53,9 +53,16 @@
   --color-dark: #000;
   --color-gray-dark: #777;
   --color-gray-light-1: #f7f7f7;
+
   --primary-natour: #55c57e;
-  --primary-light-natour: #7ed56f;
-  --primary-dark-natour: #28b485;
+  --primary-natours-light: #7ed56f;
+  --primary-natours-dark: #28b485;
+
+  --secondary-natours-light: #ffb900;
+  --secondary-natours-dark: #ff7730;
+
+  --tertiary-natours-light: #2898ff;
+  --tertiary-natours-dark: #5643fa;
 }
 
 * {
