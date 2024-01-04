@@ -1,36 +1,36 @@
-import { motion, useAnimationControls } from 'framer-motion';
-import AnimatedButton from '../../ui/AnimatedButton';
-import Heading from '../../ui/Heading';
-import { headerHover } from './AnimationVariables';
+import { motion, useAnimationControls } from "framer-motion";
+import AnimatedButton from "../../ui/AnimatedButton";
+import Heading from "../../ui/Heading";
+import { headerHover } from "./AnimationVariables";
 
 function Tours() {
   const controls = useAnimationControls();
 
   const images = [
     {
-      src: 'nat-1-large.jpg',
-      positionCss: '-top-[2rem] left-0',
+      src: "nat-1-large.jpg",
+      positionCss: "-top-[2rem] left-0",
     },
     {
-      src: 'nat-2-large.jpg',
-      positionCss: 'top-[2rem] right-0',
+      src: "nat-2-large.jpg",
+      positionCss: "top-[2rem] right-0",
     },
     {
-      src: 'nat-3-large.jpg',
-      positionCss: 'top-[10rem] left-[20%]',
+      src: "nat-3-large.jpg",
+      positionCss: "top-[10rem] left-[20%]",
     },
   ];
 
   function handleClick() {
     controls.start({
       y: 0,
-      boxShadow: '0 2.5px 5px rgba(0,0,0,0.2)',
-      transition: { type: 'spring' },
+      boxShadow: "0 2.5px 5px rgba(0,0,0,0.2)",
+      transition: { type: "spring" },
     });
   }
 
   return (
-    <section className="-mt-[20vh] pt-[12rem] px-20 pb-10 bg-gray-200">
+    <section className="-mt-[20vh] py-[15rem]  px-20 bg-gray-200">
       <div>
         <Heading
           type="h2"
@@ -79,18 +79,18 @@ function Tours() {
               className="text-xl py-2 pl-2 pr-3 bg-gray-200 rounded-none text-green-600 border-b border-green-700 text-left"
               whileHover={{
                 y: -10,
-                boxShadow: '0 5px 15px rgba(0,0,0,0.2)',
-                transition: { type: 'spring' },
-                backgroundColor: 'var(--primary-natour)',
-                borderBottom: 'var(--primary-natour)',
-                color: 'var(--color-white)',
-                borderRadius: '0.5rem',
+                boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
+                transition: { type: "spring" },
+                backgroundColor: "var(--primary-natour)",
+                borderBottom: "var(--primary-natour)",
+                color: "var(--color-white)",
+                borderRadius: "0.5rem",
               }}
               initial={{
-                borderRadius: '0px',
+                borderRadius: "0px",
               }}
               exit={{
-                borderBottom: '1px solid var(--primary-natour)',
+                borderBottom: "1px solid var(--primary-natour)",
               }}
               animate={controls}
               onClick={handleClick}
@@ -109,9 +109,9 @@ function Tours() {
               whileHover={{
                 scale: 1.1,
                 zIndex: 20,
-                outline: '.5rem solid var(--primary-natour)',
-                boxShadow: '0 10px 15px -3px rgba(0,0,0,0.2)',
-                transition: { type: 'spring' },
+                outline: ".5rem solid var(--primary-natour)",
+                boxShadow: "0 10px 15px -3px rgba(0,0,0,0.2)",
+                transition: { type: "spring" },
               }}
             />
           ))}

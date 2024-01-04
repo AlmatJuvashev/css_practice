@@ -1,9 +1,24 @@
-import { createContext, useContext, useState } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { twJoin } from 'tailwind-merge';
+import { createContext, useContext, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { twJoin } from "tailwind-merge";
 // Create context
 
 const FlipCardContext = createContext();
+
+const card_hover_variants = {
+  rest: {
+    rotateY: 0,
+    transition: { duration: 2, type: "spring" },
+  },
+  hover: {
+    rotateY: 180,
+    transition: { duration: 0.5, animationDirection: "normal" },
+  },
+  exit: {
+    rotateY: 360,
+    transition: { duration: 2, type: "spring" },
+  },
+};
 
 // Create parent component
 
@@ -37,7 +52,7 @@ function FlipCard({ className, children }) {
       }}
     >
       <div
-        className={twJoin(['[perspective:1000px]', className])}
+        className={twJoin(["[perspective:1000px]", className])}
         // onClick={handleFlip}
         // onMouseEnter={handleFlip}
         // onMouseLeave={handleFlip}
@@ -61,39 +76,44 @@ function InnerCard({ id, className, children }) {
   return (
     <motion.div
       key={id}
-      animate={cardAnimationControls}
+      // animate={cardAnimationControls}
       className={twJoin([
-        '[transform-style:preserve-3d] w-full h-full',
+        "[transform-style:preserve-3d] w-full h-full",
         className,
       ])}
-      initial={false}
+      variants={card_hover_variants}
+      initial="rest"
+      whileHover="hover"
+      exit="exit"
+      whileFocus="hover"
+      // initial={false}
       // animate={{ rotateY: isFlipped ? 180 : 360 }}
       // transition={{
       //   duration: 0.4,
       //   animationDirection: 'normal',
       //   // type: 'spring',
       // }}
-      onHoverStart={() => {
-        cardAnimationControls.start({
-          rotateY: 180,
-          transition: { duration: 0.6, animationDirection: 'normal' },
-        });
-        // if (!isAnimating) {
-        //   setIsAnimating(true);
+      // onHoverStart={() => {
+      //   cardAnimationControls.start({
+      //     rotateY: 180,
+      //     transition: { duration: 0.6, animationDirection: "normal" },
+      //   });
+      //   // if (!isAnimating) {
+      //   //   setIsAnimating(true);
 
-        //   // setIsFlipped(!isFlipped);
-        // }
-      }}
-      onHoverEnd={() => {
-        cardAnimationControls.start({
-          rotateY: 360,
-          transition: { duration: 0.6, animationDirection: 'normal' },
-        });
-        // if (!isAnimating) {
-        //   setIsAnimating(true);
+      //   //   // setIsFlipped(!isFlipped);
+      //   // }
+      // }}
+      // onHoverEnd={() => {
+      //   cardAnimationControls.start({
+      //     rotateY: 360,
+      //     transition: { duration: 0.6, animationDirection: "normal" },
+      //   });
+      //   // if (!isAnimating) {
+      //   //   setIsAnimating(true);
 
-        // }
-      }}
+      //   // }
+      // }}
       onAnimationComplete={() => setIsAnimating(false)}
     >
       {children}
@@ -105,7 +125,7 @@ function FrontCard({ className, children }) {
   return (
     <div
       className={twJoin([
-        'absolute inset-0 h-full w-full [backface-visibility:hidden]',
+        "absolute inset-0 h-full w-full [backface-visibility:hidden]",
         className,
       ])}
     >
@@ -118,7 +138,7 @@ function BackCard({ className, children }) {
   return (
     <div
       className={twJoin([
-        'absolute inset-0 h-full w-full [transform:rotateY(180deg)] [backface-visibility:hidden]',
+        "absolute inset-0 h-full w-full [transform:rotateY(180deg)] [backface-visibility:hidden]",
         className,
       ])}
     >

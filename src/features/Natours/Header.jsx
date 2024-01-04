@@ -1,17 +1,10 @@
-import Heading from '../../ui/Heading';
-import { motion, useAnimationControls } from 'framer-motion';
-import AnimatedButton from '../../ui/AnimatedButton';
+import Heading from "../../ui/Heading";
+import { motion } from "framer-motion";
+import AnimatedButton from "../../ui/AnimatedButton";
 
 function Header() {
-  const controls = useAnimationControls();
-
   function handleClick() {
-    console.log('button pressed');
-    controls.start({
-      y: 0,
-      boxShadow: '0 5px 10px -10px rgb(0,0,0,0.2)',
-      transition: { type: 'spring' },
-    });
+    console.log("button pressed");
   }
 
   return (
@@ -38,7 +31,7 @@ function Header() {
             whileInView={{ opacity: 1 }}
             transition={{
               duration: 2,
-              type: 'spring',
+              type: "spring",
             }}
           >
             Outdoors
@@ -52,7 +45,7 @@ function Header() {
             whileInView={{ opacity: 1 }}
             transition={{
               duration: 2,
-              type: 'spring',
+              type: "spring",
             }}
           >
             is where life happens
@@ -63,20 +56,6 @@ function Header() {
             type="custom"
             size="custom"
             className="uppercase text-lg font-semibold md:mt-10 text-gray-700 bg-gray-100 md:px-10 md:py-5 rounded-full shadow-md"
-            whileHover={{
-              y: -10,
-              boxShadow: '0 35px 60px -15px rgba(0, 0, 0, 0.2)',
-              transition: { type: 'spring', delay: 0.1 },
-            }}
-            // exit={{
-            //   y: 0,
-            // }}
-            animate={controls}
-            // whileInView={{
-            //   opacity: 1,
-            //   y: 0,
-            //   transition: { type: 'spring', duration: 2 },
-            // }}
             onClick={handleClick}
           >
             Discover our tours

@@ -1,9 +1,12 @@
-import { twJoin } from 'tailwind-merge';
+import { twJoin } from "tailwind-merge";
 
-function Form({ className, children, ...props }) {
+function Form({ customizeForm = false, className, children, ...props }) {
   return (
     <form
-      className={twJoin(['bg-gray-200 rounded-lg shadow-lg', className])}
+      className={twJoin([
+        customizeForm ? "" : "rounded-lg shadow-lg",
+        className,
+      ])}
       {...props}
     >
       {children}
@@ -11,11 +14,31 @@ function Form({ className, children, ...props }) {
   );
 }
 
-export function FormRow({ label, error, children }) {
+export function FormRow({
+  label,
+  customizeParentDiv = false,
+  classNameParentDiv,
+  customizeLabel = false,
+  classNameLabel,
+  error,
+  children,
+}) {
   return (
-    <div className="grid grid-cols-3">
-      {label && <label htmlFor={children.props.id}>{label}</label>}
+    <div
+      className={twJoin([
+        customizeParentDiv ? "" : "grid grid-cols-3",
+        classNameParentDiv,
+      ])}
+    >
       {children}
+      {label && (
+        <label
+          htmlFor={children.props.id}
+          className={twJoin([customizeLabel ? "" : "", classNameLabel])}
+        >
+          {label}
+        </label>
+      )}
       {error && (
         <span className="text-red-700 font-semibold text-sm">{error}</span>
       )}
@@ -23,11 +46,32 @@ export function FormRow({ label, error, children }) {
   );
 }
 
-export function FormRowVertical({ label, error, children }) {
+export function FormRowVertical({
+  label,
+  customizeParentDiv = false,
+  classNameParentDiv,
+  customizeLabel = false,
+  classNameLabel,
+  error,
+  children,
+}) {
   return (
-    <div className="flex flex-col">
-      {label && <label htmlFor={children.props.id}>{label}</label>}
+    <div
+      className={twJoin(
+        customizeParentDiv ? "" : "flex flex-col",
+        classNameParentDiv
+      )}
+    >
       {children}
+
+      {label && (
+        <label
+          className={twJoin(customizeLabel ? "" : "", classNameLabel)}
+          htmlFor={children.props.id}
+        >
+          {label}
+        </label>
+      )}
       {error && (
         <span className="text-red-700 font-semibold text-sm">{error}</span>
       )}
@@ -36,7 +80,7 @@ export function FormRowVertical({ label, error, children }) {
 }
 
 export function FormInput({ className, ...props }) {
-  return <input className={twJoin('', className)} {...props} />;
+  return <input className={twJoin("", className)} {...props} />;
 }
 
 Form.FormRow = FormRow;

@@ -3,37 +3,37 @@ import {
   FaRegHeart,
   FaRegCompass,
   FaRegMap,
-} from 'react-icons/fa';
+} from "react-icons/fa";
 
-import { motion } from 'framer-motion';
-import Heading from '../../ui/Heading';
+import { motion } from "framer-motion";
+import Heading from "../../ui/Heading";
 
 function Features() {
   const cards_info = [
     {
       icon: FaWpexplorer,
-      title: 'Explore the world',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, non.',
+      title: "Explore the world",
+      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, non.",
     },
     {
       icon: FaRegCompass,
-      title: 'Meet nature',
-      text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum, impedit? ',
+      title: "Meet nature",
+      text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum, impedit? ",
     },
     {
       icon: FaRegMap,
-      title: 'Find your way',
-      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, id!',
+      title: "Find your way",
+      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, id!",
     },
     {
       icon: FaRegHeart,
-      title: 'Live a healthier life',
-      text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat, id!',
+      title: "Live a healthier life",
+      text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat, id!",
     },
   ];
 
   return (
-    <section className="-mt-20">
+    <section className="-mt-24">
       <div className="h-[800px] bg-features-natours bg-top bg-cover px-20 -skew-y-6 [&>*]:skew-y-6 flex items-center">
         <div className="grid grid-cols-4 items-center text-center gap-10">
           {cards_info.map((el, idx) => {

@@ -1,42 +1,34 @@
-import { twJoin } from 'tailwind-merge';
-import { useNatourData } from '../../context/NatoursProvider';
-import Heading from '../../ui/Heading';
-import { headerHover } from './AnimationVariables';
-import FlipCard from '../../ui/FlipCard';
-import AnimatedButton from '../../ui/AnimatedButton';
-import { useAnimationControls } from 'framer-motion';
+import { twJoin } from "tailwind-merge";
+import { useNatourData } from "../../context/NatoursProvider";
+import Heading from "../../ui/Heading";
+import { headerHover } from "./AnimationVariables";
+import FlipCard from "../../ui/FlipCard";
+import AnimatedButton from "../../ui/AnimatedButton";
 
 function PopularTours() {
   const { popular_tours } = useNatourData();
 
-  const controls = useAnimationControls();
-
   function handleClick() {
-    console.log('button pressed');
-    controls.start({
-      y: 0,
-      boxShadow: '0 5px 10px -10px rgb(0,0,0,0.2)',
-      transition: { type: 'spring' },
-    });
+    console.log("button pressed");
   }
 
   function renderBgColors(cat, hasOpacity = false) {
-    if (cat === 'sea' && hasOpacity) {
-      return 'rgba(var(--secondary-natours-light), .85), rgba(var(--secondary-natours-dark), .85)';
-    } else if (cat === 'sea' && !hasOpacity) {
-      return 'var(--secondary-natours-light), var(--secondary-natours-dark)';
+    if (cat === "sea" && hasOpacity) {
+      return "rgba(var(--secondary-natours-light), .85), rgba(var(--secondary-natours-dark), .85)";
+    } else if (cat === "sea" && !hasOpacity) {
+      return "var(--secondary-natours-light), var(--secondary-natours-dark)";
     }
 
-    if (cat === 'forest' && hasOpacity) {
-      return 'rgba(var(--primary-natours-light), .85), rgba(var(--primary-natours-dark), .85)';
-    } else if (cat === 'forest' && !hasOpacity) {
-      return 'var(--primary-natours-light), var(--primary-natours-dark)';
+    if (cat === "forest" && hasOpacity) {
+      return "rgba(var(--primary-natours-light), .85), rgba(var(--primary-natours-dark), .85)";
+    } else if (cat === "forest" && !hasOpacity) {
+      return "var(--primary-natours-light), var(--primary-natours-dark)";
     }
 
     if (hasOpacity) {
-      return 'rgba(var(--tertiary-natours-light), .85), rgba(var(--tertiary-natours-dark), .85)';
+      return "rgba(var(--tertiary-natours-light), .85), rgba(var(--tertiary-natours-dark), .85)";
     } else {
-      return 'var(--tertiary-natours-light), var(--tertiary-natours-dark)';
+      return "var(--tertiary-natours-light), var(--tertiary-natours-dark)";
     }
   }
 
@@ -61,18 +53,18 @@ function PopularTours() {
                   <div className="relative">
                     <div
                       className={twJoin([
-                        'w-full h-[10rem] bg-center bg-cover bg-blend-screen',
+                        "w-full h-[10rem] bg-center bg-cover bg-blend-screen",
                         // tour.img_src,
-                        'clip-bottom-right',
+                        "clip-bottom-right",
                       ])}
                       style={{
                         backgroundImage:
-                          'linear-gradient(to right bottom, ' +
+                          "linear-gradient(to right bottom, " +
                           renderBgColors(tour.cat) +
-                          ')' +
-                          ', url(' +
+                          ")" +
+                          ", url(" +
                           tour.img_src +
-                          ')',
+                          ")",
                       }}
                     />
                     <div className="absolute bottom-4 right-1 text-right  w-2/3 z-2000">
@@ -100,12 +92,12 @@ function PopularTours() {
                 </FlipCard.FrontCard>
                 <FlipCard.BackCard
                   className={twJoin([
-                    'rounded-lg  px-12 text-center bg-gradient-to-r overflow-hidden flex flex-col items-center justify-center text-white',
-                    tour.cat === 'winter'
-                      ? 'from-cyan-500 to-blue-500'
-                      : tour.cat === 'forest'
-                      ? 'from-lime-500 to-emerald-500'
-                      : 'from-amber-500 to-yellow-500',
+                    "rounded-lg  px-12 text-center bg-gradient-to-r overflow-hidden flex flex-col items-center justify-center text-white",
+                    tour.cat === "winter"
+                      ? "from-cyan-500 to-blue-500"
+                      : tour.cat === "forest"
+                      ? "from-lime-500 to-emerald-500"
+                      : "from-amber-500 to-yellow-500",
                   ])}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -119,12 +111,6 @@ function PopularTours() {
             type="custom"
             size="custom"
             className="uppercase text-lg font-semibold md:mt-10 text-gray-100 bg-green-700 md:px-4 md:py-2 rounded-full shadow-md"
-            whileHover={{
-              y: -10,
-              boxShadow: '0 35px 60px -15px rgba(0, 0, 0, 0.2)',
-              transition: { type: 'spring', delay: 0.1 },
-            }}
-            animate={controls}
             onClick={handleClick}
           >
             Discover all tours
